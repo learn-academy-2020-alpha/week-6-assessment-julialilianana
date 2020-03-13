@@ -6,7 +6,12 @@
 var people = [{name: "ford prefect", occupation: "hitchhiker"}, {name: "zaphod beeblebrox", occupation: "president of the galaxy,"}, {name: "arthur dent", occupation: "radio employee"}]
 // Expected output example: "Ford Prefect is a hitchhiker." "Zaphod Beeblebrox is the president of the galaxy." "Arthus Dent is a radio employee."
 
+const sentenceGenerator = (array) => {
+    let sentences = array.map(value => `${value.name} is a ${value.occupation}.`)
+    return sentences
+}
 
+console.log(sentenceGenerator(people));
 
 
 
@@ -17,6 +22,16 @@ var testingArray1 = [23, "Heyyyy!", 45, -9, 0, "Yo", false]
 var testingArray2 = [5, "Hola", 43, -34, "greetings", true]
 // Expected output: [ 2, 1, -1 ]
 
+// filter an array to get an array of just numbers
+// take return the remainder of those numbers when divided by three 
+
+const divideByThree = (array) => {
+    let onlyNum = array.filter(value => typeof value === 'number')
+     return onlyNum.map(value => value % 3)
+}
+
+console.log(divideByThree(testingArray1));
+console.log(divideByThree(testingArray2));
 
 
 
@@ -26,3 +41,10 @@ var testingArray2 = [5, "Hola", 43, -34, "greetings", true]
 var testingArray3 = [3, 7, "hi", 10, 3, "hello", 4, "hi"]
 var testingArray4 = [7, "hi", 3, 1, "hi", 4, "hello", 4, 7]
 // Expected output: [ 3, 7, "hi", 10, "hello", 4, 1 ]
+
+const noDups = (array1, array2) => {
+    let combined = array1.concat(array2)
+    return combined.filter((value, index) => combined.indexOf(value) === index)
+}
+
+console.log(noDups(testingArray3,testingArray4))
